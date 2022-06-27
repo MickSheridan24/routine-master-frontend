@@ -1,1 +1,1 @@
-export const BASE_ADDRESS = "http://localhost:7160/"
+export const BASE_ADDRESS = "https://localhost:7160/"
