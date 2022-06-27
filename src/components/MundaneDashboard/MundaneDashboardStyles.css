@@ -1,0 +1,36 @@
+.mundane-list{
+    border: 1px solid rgb(36, 28, 28);
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+.mundane-list h5{
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+
+.mundane-list-item{
+    display: flex;
+    padding: 8px;
+}
+
+.mundane-list-item .name{
+    flex: 1;
+}
+
+.mundane-list-item .createdOn{
+    color: gray;
+}
+
+
+.mundane-routine{
+    border: 1px solid rgb(36, 28, 28);
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.mundane-routine h5{
+    margin-top: 0px;
+    margin-bottom: 8px;
+}

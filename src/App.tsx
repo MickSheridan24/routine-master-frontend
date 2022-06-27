@@ -1,24 +1,22 @@
-import React from 'react';
+import React, { createContext, Dispatch, SetStateAction, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/NavBar/NavBar';
+import DashboardContainer from './components/Containers/DashboardContainer';
+import { DashboardName } from './types/enums';
+import { CurrentDashContext } from './contexts/ViewContexts';
 
 function App() {
+
+  const [currentDash, setCurrentDash] = useState<DashboardName>(DashboardName.Home);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CurrentDashContext.Provider value={{currentDash: currentDash, setCurrentDash: setCurrentDash}}>
+        <NavBar></NavBar>
+        <DashboardContainer></DashboardContainer>
+     </CurrentDashContext.Provider>
     </div>
   );
 }
