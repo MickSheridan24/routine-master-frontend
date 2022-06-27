@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MundaneListContext,MundaneRoutineContext } from "../../contexts/MundaneContexts";
 import { MockMundaneLists, MockMundaneRoutines } from "../../MockData/MockData";
+import { IMundaneList } from "../../types/MundaneTypes";
 import MundaneListContainer from "./Containers/MundaneListContainer";
 import MundaneRoutineContainer from "./Containers/MundaneRoutineContainer";
+import { getMundaneLists } from "./MundaneDashboardService";
 import "./MundaneDashboardStyles.css"
 
 export default function MundaneDashboard(){
 
-    const [mundaneLists, setMundaneLists]  = useState(MockMundaneLists);
+    const [mundaneLists, setMundaneLists]  = useState<IMundaneList[]>([]);
     const [mundaneRoutines, setMundaneRoutines] = useState(MockMundaneRoutines);
 
+    useEffect(() => getMundaneLists(resp => setMundaneLists(resp)))
 
     return <>
             <div className="dashboard-column">

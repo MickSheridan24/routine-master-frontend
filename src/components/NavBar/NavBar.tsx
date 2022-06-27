@@ -15,6 +15,6 @@ export default function NavBar(){
         <button onClick={() => dashboardContext.setCurrentDash(DashboardName.Health)}>Health</button>
         <button onClick={() => dashboardContext.setCurrentDash(DashboardName.Finance)}>Finance</button>
         <button onClick={() => dashboardContext.setCurrentDash(DashboardName.Education)}>Education</button>
-        <button onClick={() => dashboardContext.setCurrentDash(DashboardName.CreativeProject)}>CreativeProject</button>
+        <button onClick={() => dashboardContext.setCurrentDash(DashboardName.CreativeProject)}>Creative Projects</button>
     </div>
 }

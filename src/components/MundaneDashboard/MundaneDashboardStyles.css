@@ -4,9 +4,35 @@
     padding: 16px;
     margin-bottom: 12px;
 }
-.mundane-list h5{
+
+.mundane-list .header{
+    display: flex;
+}
+
+.mundane-list .header h5{
+    align-self: center;
+    flex: 1;
     margin-top: 0px;
-    margin-bottom: 8px;
+    margin-bottom: 0px;
+    font-size: 12px;
+}
+.mundane-list .header .count {
+    font-size: 12px;
+    padding:4px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: teal;
+    color: aliceblue;
+    border-radius: 25px;
+}
+
+.mundane-list .header .count:hover {
+    cursor: pointer;
+    background-color: rgb(2, 201, 201);
+}
+ 
+.list{
+    margin-top: 8px;
 }
 
 .mundane-list-item{
@@ -33,4 +59,52 @@
 .mundane-routine h5{
     margin-top: 0px;
     margin-bottom: 8px;
+    font-size: 12px;
+}
+
+.mundane-li-form{
+    margin-left: 8px;
+    margin-top: 8px;
+    display: flex;
+}
+
+.mundane-li-form input{
+    flex:1;
+    border: 1px solid teal;
+    border-radius: 8px;
+}
+
+.mundane-li-form button{
+    margin-left: 16px;
+    background: teal;
+    color: aliceblue;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    align-content: center;
+    padding:6px;
+}
+
+.mundane-list-form{ 
+    display: flex;
+    border: 1px solid rgb(36, 28, 28);
+    border-radius: 4px;
+    padding: 16px;
+}
+
+.mundane-list-form input{
+    flex:1;
+    border: 1px solid teal;
+    border-radius: 8px;
+}
+
+.mundane-list-form button{
+    margin-left: 16px;
+    background: teal;
+    color: aliceblue;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    align-content: center;
+    padding:6px;
 }
