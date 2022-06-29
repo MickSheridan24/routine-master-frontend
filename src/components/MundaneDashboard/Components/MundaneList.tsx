@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { IMundaneList } from "../../../types/MundaneTypes"
 import MundaneListItemForm from "../Forms/MundaneListItemForm"
+import { deleteMundaneList } from "../MundaneDashboardService"
 import MundaneListItem from "./MundaneListItem"
 
 export default function MundaneList(props: {list: IMundaneList}){
@@ -16,9 +17,11 @@ export default function MundaneList(props: {list: IMundaneList}){
     return <div className="mundane-list">
         <div className="header">
             <h5>{list.name}</h5>
-            <div className="count" onClick={() => setShowItems(!showItems)}> {showItems ? "-" : "+"}</div>
+            <div className="delete" onClick={() => deleteMundaneList(list.id!)}> Delete</div>
         </div>
+
+        <div className="count" onClick={() => setShowItems(!showItems)}> {showItems ? "V" : ">"}</div>
         {showItems && <div className="list">{mapItems()} </div>}
-        <MundaneListItemForm></MundaneListItemForm>
+        <MundaneListItemForm list={list}></MundaneListItemForm>
     </div>
 }

@@ -1,20 +1,36 @@
 import { BASE_ADDRESS } from "../../Constants";
-import { IMundaneList } from "../../types/MundaneTypes";
-
-export function getMundaneLists(cb: (_: IMundaneList[]) => void){
-    fetch(BASE_ADDRESS + "lists")
-    .then(resp => resp.text()
-    .then(t => cb(JSON.parse(t))))
-}
-
+import { refreshObs } from "../../types/ApiTypes";
+import { IMundaneList, IMundaneListItem, IMundaneRoutine } from "../../types/MundaneTypes";
 
 
 export function createMundaneList(value: IMundaneList){
     fetch(BASE_ADDRESS + "lists", {
         method: "POST",
         headers: {
-            contentType: "Application/json"
+            "Content-Type": "application/json"
         },
         body: JSON.stringify(value)
-    })
+    }).then(() => mundaneListRefereshObs.next())
 }
+
+
+export function createMundaneListItem(listId: number, value: IMundaneListItem){
+    fetch(BASE_ADDRESS + "lists/" + listId + "/items", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(value)
+    }).then(() => mundaneListRefereshObs.next())
+}
+
+export function deleteMundaneList(id: number){
+    fetch(BASE_ADDRESS + "lists/" + id, {
+        method: "DELETE",
+    }).then(() => mundaneListRefereshObs.next()) 
+}
+
+
+export const mundaneListRefereshObs = refreshObs()
+
+export const mundaneRoutineRefereshObs =  refreshObs()

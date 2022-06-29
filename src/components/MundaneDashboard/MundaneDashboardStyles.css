@@ -107,4 +107,11 @@
     font-size: 12px;
     align-content: center;
     padding:6px;
+
+}
+
+.mundane-list-form button:hover{
+    cursor: pointer;
+    background-color: rgb(2, 201, 201);
+
 }

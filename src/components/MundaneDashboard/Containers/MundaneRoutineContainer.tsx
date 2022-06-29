@@ -4,6 +4,7 @@ import MundaneRoutine from "../Components/MundaneRoutine";
 
 export default function MundaneRoutineContainer(){
     const routines = useContext(MundaneRoutineContext).get;
+    console.log(routines)
     return <div> 
             {routines.map( routine => <MundaneRoutine key={routine.id} routine={routine}></MundaneRoutine>)}
         </div>
