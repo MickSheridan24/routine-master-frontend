@@ -7,3 +7,29 @@
   flex: 1;
   padding: 24px;
 }
+
+
+
+
+progress {
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+
+/* Get rid of default border in Firefox. */
+border: none;
+  border-radius: 4px;
+}
+progress::-moz-progress-bar {
+  border-radius: 4px;
+}
+
+.green progress::-moz-progress-bar{
+  background-color: green;
+
+}
+
+.red progress::-moz-progress-bar{
+  background-color: rgb(213, 42, 42);
+}

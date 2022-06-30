@@ -14,6 +14,6 @@ export default function BudgetForm(){
         <input id="amount" type="number" step="0.01" onChange={(e) => setAmount(parseFloat(e.target.value))} value = {amount} />
 
 
-        <button onClick={() => createBudget({name, amount, expenses: []})}>Create</button>
+        <button onClick={() => createBudget({name, amount})}>Create</button>
     </div>
 }

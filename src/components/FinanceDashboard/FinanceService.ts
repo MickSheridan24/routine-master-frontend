@@ -20,7 +20,10 @@ export function createExpense(value: IExpenseEntry){
             "Content-Type": "application/json"
         },
         body: JSON.stringify(value)
-    }).then(() => expensesRefreshObs.next())
+    }).then(() => {
+        budgetRefreshObs.next()
+        expensesRefreshObs.next()
+    })
 }
 
 
@@ -38,7 +41,10 @@ export function createFund(value: IFund){
 export function deleteExpense(id: number){
     fetch(BASE_ADDRESS + "expenses/" + id, {
         method: "DELETE"
-    }).then(() => fundsRefreshObs.next())
+    }).then(() => {
+        budgetRefreshObs.next()
+        expensesRefreshObs.next()
+    })
 }
 
 
@@ -52,7 +58,7 @@ export function deleteFund(id: number){
 export function deleteBudget(id: number){
     fetch(BASE_ADDRESS + "budgets/" + id, {
         method: "DELETE"
-    }).then(() => fundsRefreshObs.next())
+    }).then(() => budgetRefreshObs.next())
 }
 
 export const budgetRefreshObs = refreshObs()

@@ -3,17 +3,17 @@ export interface IBudget{
     name: string,
     amount: number,
     savingsAccountId?: number,
-    created?: Date,
-    expenses: IExpenseEntry[]
+    created?: string,
+    spent?: number
 }
 
 export interface IExpenseEntry{
     id?: number,
-    date?: Date,
+    date?: string,
     budgetId?: number,
     amount: number,
     name: string,
-    budget?: IBudget
+    budgetName?: string
 }
 
 

@@ -18,10 +18,10 @@ export default function ExpenseForm(props: {budgets: IBudget[]}){
 
         <label htmlFor="amount">Amount</label>
         <input id="amount" type="number" step="0.01" onChange={(e) => setAmount(parseFloat(e.target.value))} value = {amount} />
-        
         <select name="Budget" id="budget" value={budgetId} onChange={(e) => {
             console.log(e)
             setBudgetId(parseInt(e.target.value))}}>
+            <option key="Unassigned" value={undefined} selected >Unassigned</option>
             {budgets.map(b => <option value={b.id} key={b.id}>{b.name}</option>)}
         </select>
 
