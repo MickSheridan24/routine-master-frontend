@@ -10,6 +10,11 @@ export function createApiResourceContext<T>(){
 }
 
 
+export interface IObservable{
+    _subscriptions: (() => void)[],
+    subscribe: (cb: () => void) => void,
+    next: () => void 
+}
 
 export function refreshObs(){
     return {

@@ -1,0 +1,30 @@
+.projects-container{
+    display: flex;
+    flex-direction: column;
+    padding-left: 100px;
+    padding-top: 24px;
+}
+
+.project-container{
+    border: 1px solid gray;
+    padding: 24px; 
+    margin-top: 8px;
+    border-radius: 8px;
+}
+
+.project-form{
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-form input{
+    padding: 4px;
+    line-height: 12px;
+    border-radius: 8px;
+
+}
+.project-form textarea{
+    margin-top: 8px;
+    border-radius: 8px;
+}
