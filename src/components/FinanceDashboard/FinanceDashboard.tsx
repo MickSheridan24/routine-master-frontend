@@ -8,6 +8,7 @@ import { budgetRefreshObs, expensesRefreshObs, fundsRefreshObs } from "./Finance
 import BudgetForm from "./forms/BudgetForm";
 import ExpenseForm from "./forms/ExpenseForm";
 import FundForm from "./forms/FundForm";
+import "./FinanceStyles.css"
 
 export default function FinanceDashboard(){
 
@@ -16,16 +17,21 @@ export default function FinanceDashboard(){
     const[funds, setFunds] = useResource<IFund>("funds", fundsRefreshObs)
 
     return <div className="finances-container">
-        <div className="expenses-container">
+        <div className="finance-container">
+            <h3>Expenses</h3>
             {expenses.map(e => <ExpenseEntry key={e.id} entry={e}></ExpenseEntry>)}
-            <ExpenseForm></ExpenseForm>
+            <ExpenseForm budgets={budgets}></ExpenseForm>
         </div>
-        <div className="budgets-container">
+        <hr />
+        <div className="finance-container">
+            <h3>Budgets</h3>
             {budgets.map(b => <Budget key={b.id} budget={b}></Budget>)}
             <BudgetForm></BudgetForm>
         </div>
+        <hr />
 
-        <div className="funds-container">
+        <div className="finance-container">
+            <h3>Funds</h3>
             {funds.map(f => <Fund key={f.id} fund={f}></Fund>)}
             <FundForm></FundForm>
         </div>

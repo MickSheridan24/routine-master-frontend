@@ -1,0 +1,30 @@
+.finances-container{
+    display: flex;
+}
+
+.finance-container{
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.finance-item-container{
+    border: 1px solid black;
+    margin-bottom: 8px;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.finance-form{
+    border: 1px solid black;
+    margin-bottom: 8px;
+    padding: 16px;
+    border-radius: 8px;
+
+}
+.finance-form input{
+    border-radius: 8px;
+    margin-bottom: 4px;
+}
+.finance-form label{
+    display: block;
+}

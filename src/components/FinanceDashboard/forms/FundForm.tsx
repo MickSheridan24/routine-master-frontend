@@ -8,7 +8,7 @@ export default function FundForm(){
     const [goal, setGoal] = useState(0.00)
 
 
-    return <div className="fund-form">
+    return <div className="finance-form">
         <label htmlFor="name">Name</label>
         <input id="name" type="text" onChange={(e) => setName(e.target.value)} value = {name} />
 

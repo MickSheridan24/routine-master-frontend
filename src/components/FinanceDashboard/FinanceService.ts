@@ -35,6 +35,25 @@ export function createFund(value: IFund){
 }
 
 
+export function deleteExpense(id: number){
+    fetch(BASE_ADDRESS + "expenses/" + id, {
+        method: "DELETE"
+    }).then(() => fundsRefreshObs.next())
+}
+
+
+export function deleteFund(id: number){
+    fetch(BASE_ADDRESS + "funds/" + id, {
+        method: "DELETE"
+    }).then(() => fundsRefreshObs.next())
+}
+
+
+export function deleteBudget(id: number){
+    fetch(BASE_ADDRESS + "budgets/" + id, {
+        method: "DELETE"
+    }).then(() => fundsRefreshObs.next())
+}
 
 export const budgetRefreshObs = refreshObs()
 

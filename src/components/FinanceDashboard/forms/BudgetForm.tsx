@@ -6,7 +6,7 @@ export default function BudgetForm(){
     const [name, setName] = useState("")
     const [amount, setAmount] = useState(0.00)
 
-    return <div className="budget-form">
+    return <div className="finance-form">
         <label htmlFor="name">Name</label>
         <input id="name" type="text" onChange={(e) => setName(e.target.value)} value = {name} />
 
