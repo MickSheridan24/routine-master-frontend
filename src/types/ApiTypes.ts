@@ -23,6 +23,7 @@ export function refreshObs(){
             this._subscriptions.push(cb)
         },
         next: function(){
+            console.log("NEXT")
             this._subscriptions.forEach(cb => {
                 cb()
             });

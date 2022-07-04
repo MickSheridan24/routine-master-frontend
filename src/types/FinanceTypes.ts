@@ -2,7 +2,8 @@ export interface IBudget{
     id?: number,
     name: string,
     amount: number,
-    savingsAccountId?: number,
+    fundId?: number, 
+    fundName?: string,
     created?: string,
     spent?: number
 }
@@ -22,4 +23,12 @@ export interface IFund{
     amount: number,
     goal: number,
     name: string
+}
+
+
+export interface IUserIncome{
+    amount: number,
+    incidentalBonus: number,
+    remaining: number,
+    budgeted: number
 }

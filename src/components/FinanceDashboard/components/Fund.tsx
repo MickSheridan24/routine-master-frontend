@@ -1,13 +1,15 @@
 import { IFund } from "../../../types/FinanceTypes";
+import HealthBar from "../../Shared/HealthBar";
 import { deleteFund } from "../FinanceService";
 
 export default function Fund(props: {fund: IFund}){
     const {fund} = props
     return <div className="finance-item-container">
         <div className="info">
-            <div className="name">{fund.name}</div>
-            <div className="amount">{fund.amount}</div>
-            <div className="goal">{fund.goal}</div>
+            <h4 className="name">{fund.name} - ${fund.amount}</h4>
+            <div className="goal">${fund.amount} / ${fund.goal}</div>
+            
+            <HealthBar amount={fund.amount} total={fund.goal} redOnLow={true}></HealthBar>
         </div>
         <div className="tools">
             <div className="delete" onClick={() => deleteFund(fund.id!)}>X</div>

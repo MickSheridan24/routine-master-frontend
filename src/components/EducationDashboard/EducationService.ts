@@ -1,8 +1,7 @@
 import { BASE_ADDRESS } from "../../Constants";
 import { refreshObs } from "../../types/ApiTypes";
 import { IBook, IReadingEntry } from "../../types/EducationTypes";
-import { IMundaneList, IMundaneListItem, IMundaneRoutine } from "../../types/MundaneTypes";
-
+import "./EducationStyles.css"
 
 export function createBook(value: IBook){
     fetch(BASE_ADDRESS + "books", {

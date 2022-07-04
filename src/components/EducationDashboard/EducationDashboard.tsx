@@ -18,10 +18,15 @@ export default function EducationDashboard(){
     }, [refreshBooks])
 
 
-    return <div className="books-section">
+    return <>
+    
+    <div className="books-section">
+        <h3>Books</h3>
         <div className="books-container">
             {books.map(b => <Book key={b.id} book={b}></Book>)}
         </div>
         <BooksForm></BooksForm>
     </div>
+
+    </>
 }
