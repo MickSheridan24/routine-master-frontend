@@ -13,15 +13,15 @@ export default function UserIncome(props: {userIncome: IUserIncome}){
         <div className="info">
             <h4>Income Info  <div className="expand-collapse" onClick={() => setShowInfo(!showInfo)}>{showInfo ? "v" : ">" }</div></h4>
             { showInfo ? <><label htmlFor="income">Income</label>
-            <div id="income">${userIncome.amount}</div>
+            <div id="income">${userIncome.amount.toFixed(2)}</div>
             <label htmlFor="surplus">Incidental Bonus</label>
-            <div id="surplus">${userIncome.incidentalBonus}</div>
+            <div id="surplus">${userIncome.incidentalBonus.toFixed(2)}</div>
 
             <label htmlFor="remaining">Remaining This Month</label>
-            <div id="remaining">${userIncome.remaining}</div>
+            <div id="remaining">${userIncome.remaining.toFixed(2)}</div>
 
             <label htmlFor="unbudgeted">Unbudgeted</label>
-            <div id="unbudgeted">${userIncome.amount - userIncome.budgeted}</div></> : <></>}
+            <div id="unbudgeted">${(userIncome.amount - userIncome.budgeted).toFixed(2)}</div></> : <></>}
      </div>
     </div>
 }

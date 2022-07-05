@@ -10,6 +10,11 @@
     display: flex;
 }
 
+.entry{
+    display: flex;
+    flex-direction: column;
+}
+
 .book-container .tools{
     margin-left: 8px;
 }

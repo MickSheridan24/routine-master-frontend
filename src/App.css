@@ -8,8 +8,30 @@
   padding: 24px;
 }
 
+.dash-item{
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+  display: flex;
+}
 
+.dash-item-form{
+  display: flex;
+  border:1px solid black;
+  padding: 8px;
+  flex-direction: column;
+  border-radius: 8px;
+}
 
+.dash-item-form label{
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+.dash-item-form button{
+  margin-top: 8px;
+}
 
 progress {
   width: 100%;

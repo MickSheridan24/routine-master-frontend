@@ -9,15 +9,17 @@ export default function FundForm(){
 
 
     return <div className="finance-form">
-        <label htmlFor="name">Name</label>
-        <input id="name" type="text" onChange={(e) => setName(e.target.value)} value = {name} />
+        <div className="form">
+            <label htmlFor="name">Name</label>
+            <input id="name" type="text" onChange={(e) => setName(e.target.value)} value = {name} />
 
-        <label htmlFor="amount">Starting Amount</label>
-        <input id="amount" type="number" min={0.00} step={0.01} onChange={(e) => setAmount(parseFloat(e.target.value))} value = {amount} />
+            <label htmlFor="amount">Starting Amount</label>
+            <input id="amount" type="number" min={0.00} step={0.01} onChange={(e) => setAmount(parseFloat(e.target.value))} value = {amount} />
 
-        <label htmlFor="name">Goal</label>
-        <input id="goal" type="number" min={0.00} step={0.01} onChange={(e) => {setGoal(parseFloat(e.target.value))}} value = {goal} />
+            <label htmlFor="name">Goal</label>
+            <input id="goal" type="number" min={0.00} step={0.01} onChange={(e) => {setGoal(parseFloat(e.target.value))}} value = {goal} />
 
-        <button onClick={() => createFund({name, amount: amount, goal: goal})}>Create</button>
+            <button onClick={() => createFund({name, amount: amount, goal: goal})}>Create</button>
+        </div>
     </div>
 }

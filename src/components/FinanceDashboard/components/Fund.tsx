@@ -9,7 +9,7 @@ export default function Fund(props: {fund: IFund}){
             <h4 className="name">{fund.name} - ${fund.amount}</h4>
             <div className="goal">${fund.amount} / ${fund.goal}</div>
             
-            <HealthBar amount={fund.amount} total={fund.goal} redOnLow={true}></HealthBar>
+            <HealthBar amount={fund.amount} total={fund.goal} redOn="Low"></HealthBar>
         </div>
         <div className="tools">
             <div className="delete" onClick={() => deleteFund(fund.id!)}>X</div>

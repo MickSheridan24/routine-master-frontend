@@ -10,7 +10,23 @@ export function createBudget(value: IBudget){
             "Content-Type": "application/json"
         },
         body: JSON.stringify(value)
-    }).then(() => budgetRefreshObs.next())
+    }).then(() => {
+        budgetRefreshObs.next()
+        userIncomeRefreshObs.next()
+    })
+}
+
+export function updateBudget(value: IBudget){
+    fetch(BASE_ADDRESS + "budgets/" + value.id, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(value)
+    }).then(() => {
+        budgetRefreshObs.next()
+        userIncomeRefreshObs.next()
+    })
 }
 
 export function createExpense(value: IExpenseEntry){
@@ -23,6 +39,7 @@ export function createExpense(value: IExpenseEntry){
     }).then(() => {
         budgetRefreshObs.next()
         expensesRefreshObs.next()
+        userIncomeRefreshObs.next()
     })
 }
 
@@ -44,6 +61,7 @@ export function deleteExpense(id: number){
     }).then(() => {
         budgetRefreshObs.next()
         expensesRefreshObs.next()
+        userIncomeRefreshObs.next()
     })
 }
 
@@ -58,11 +76,16 @@ export function deleteFund(id: number){
 export function deleteBudget(id: number){
     fetch(BASE_ADDRESS + "budgets/" + id, {
         method: "DELETE"
-    }).then(() => budgetRefreshObs.next())
-}
+    }).then(() =>{
+         budgetRefreshObs.next()
+        userIncomeRefreshObs.next()
+    })
+    }
 
 export const budgetRefreshObs = refreshObs()
 
 export const expensesRefreshObs = refreshObs()
 
 export const fundsRefreshObs = refreshObs()
+
+export const userIncomeRefreshObs = refreshObs()
