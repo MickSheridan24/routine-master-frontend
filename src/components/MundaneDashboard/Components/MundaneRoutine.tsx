@@ -7,5 +7,6 @@ export default function MundaneRoutine(props: { routine: IMundaneRoutine }) {
         <h5>
             {routine.name}
         </h5> 
+        <div className="check"></div>
     </div>
 }

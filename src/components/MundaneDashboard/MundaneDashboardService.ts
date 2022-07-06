@@ -30,6 +30,12 @@ export function deleteMundaneList(id: number){
     }).then(() => mundaneListRefereshObs.next()) 
 }
 
+export function completeMundaneListItem(id: number){
+    fetch(BASE_ADDRESS + "lists/items/" + id + "/complete", {
+        method: "PUT"
+    }).then(() => mundaneListRefereshObs.next())
+}
+
 
 export const mundaneListRefereshObs = refreshObs()
 

@@ -7,7 +7,7 @@ export default function CreativeProjectEntry(props: {projectId: number, entry: I
     return <div className="dash-item">
         <div className="info">
             <div className="description">{entry.description}</div>
-            <div className="percent-completed">{entry.percentCompleted}</div>
+            <div className="percent-completed">{entry.percentCompleted}%</div>
             <div className="date">{formatDate(entry.date!.toString())}</div>
         </div>
         <div className="tools">

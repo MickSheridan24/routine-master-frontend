@@ -14,14 +14,22 @@ export default function MundaneList(props: {list: IMundaneList}){
     })
 
 
-    return <div className="mundane-list">
+    return <div className="dash-item">
+        <div className="info">
         <div className="header">
-            <h5>{list.name}</h5>
-            <div className="delete" onClick={() => deleteMundaneList(list.id!)}> Delete</div>
+            <h3>{list.name}</h3>
+            <span className="expand" onClick={() => setShowItems(!showItems)}> {showItems ? "V" : ">"}</span>
         </div>
-
-        <div className="count" onClick={() => setShowItems(!showItems)}> {showItems ? "V" : ">"}</div>
+        
+        
+        
         {showItems && <div className="list">{mapItems()} </div>}
         <MundaneListItemForm list={list}></MundaneListItemForm>
+        </div>
+        <div className="tools">
+        <div className="delete" onClick={(e) => {
+                    e.stopPropagation()
+                    deleteMundaneList(list.id!)}}>X</div>
+        </div>
     </div>
 }

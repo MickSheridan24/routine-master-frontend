@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getResource } from "../../api/BaseApiUtilities";
 import { MundaneListContext,MundaneRoutineContext } from "../../contexts/MundaneContexts";
+import { useResource } from "../../hooks/resourceHooks";
 import { IMundaneList, IMundaneRoutine } from "../../types/MundaneTypes";
 import MundaneListContainer from "./Containers/MundaneListContainer";
 import MundaneRoutineContainer from "./Containers/MundaneRoutineContainer";
@@ -9,25 +10,9 @@ import "./MundaneDashboardStyles.css"
 
 export default function MundaneDashboard(){
 
-    const [refreshLists, setRefreshLists] = useState(false)
-    const [refreshRoutines, setRefreshRoutines] = useState(false)
-    const [mundaneLists, setMundaneLists]  = useState<IMundaneList[]>([]);
-    const [mundaneRoutines, setMundaneRoutines] = useState<IMundaneRoutine[]>([]);
+    const [mundaneLists, setMundaneLists] = useResource<IMundaneList>("lists", mundaneListRefereshObs)
+    const [mundaneRoutines, setMundaneRoutines]  = useResource<IMundaneRoutine>("routines", mundaneRoutineRefereshObs);
 
-    mundaneListRefereshObs.subscribe(() => setRefreshLists(true))
-    mundaneRoutineRefereshObs.subscribe(() => setRefreshRoutines(true))
-
-    useEffect(() => {
-        getResource<IMundaneList>("lists", setMundaneLists)
-        setRefreshLists(false)
-    }, [refreshLists])
-
-
-    useEffect(() => {
-         getResource<IMundaneRoutine>("routines", setMundaneRoutines)
-         setRefreshRoutines(false)
-    }, [refreshRoutines])
-    
 
     return <>
             <div className="dashboard-column">
