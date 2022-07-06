@@ -11,7 +11,7 @@ export default function Budget (props: {funds: IFund[], budget: IBudget, selectB
 
         {editMode ? <BudgetForm onCancel={() => setEditMode(false)} funds={funds} budget={budget}></BudgetForm>
         
-        : <div onClick={() => selectBudget(budget)} className="finance-item-container">
+        : <div onClick={() => selectBudget(budget)} className="dash-item">
             <div className="info">
                 <h4 className="name">{budget.name} - ${budget.amount}</h4>
                 <div>${budget.spent!} / ${budget.amount - budget.spent!}</div>

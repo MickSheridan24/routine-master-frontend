@@ -32,28 +32,32 @@ export default function FinanceDashboard(){
         .then(setUserIncome))
     },[refreshIncome])
 
-    return <div className="finances-container">
-        <div className="finance-container">
+    return <div className="dashboard-container">
+        <div className="dashboard-column">
             <div className="header">
                 <h3>Expenses</h3>
                 {selectedBudget ? <div onClick={() => setSelectedBudget(undefined)} className="filter">{selectedBudget.name} X</div> : <></>}
             </div>
+            <div className="dash-list">
             {expenses
             .filter(e => !selectedBudget || e.budgetId == selectedBudget.id!)
             .map(e => <ExpenseEntry key={e.id} entry={e}></ExpenseEntry>)}
+            </div>
             <ExpenseForm budgets={budgets}></ExpenseForm>
         </div>
         <hr />
-        <div className="finance-container">
+        <div className="dashboard-column">
             <h3>Budgets</h3>
             {userIncome ? <UserIncome userIncome={userIncome}></UserIncome> : <></> }
-
-            {budgets.map(b => <Budget funds={funds} key={b.id} selectBudget={setSelectedBudget} budget={b}></Budget>)}
+            <div className="dash-list">
+             {budgets
+             .map(b => <Budget funds={funds} key={b.id} selectBudget={setSelectedBudget} budget={b}></Budget>)}
+            </div>
             <BudgetForm funds={funds}></BudgetForm>
         </div>
         <hr />
 
-        <div className="finance-container">
+        <div className="dashboard-column">
             <h3>Funds</h3>
             {funds.map(f => <Fund key={f.id} fund={f}></Fund>)}
             <FundForm></FundForm>

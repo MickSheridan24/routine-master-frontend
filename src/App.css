@@ -8,6 +8,16 @@
   padding: 24px;
 }
 
+.dashboard-column.main{
+  flex: 2;
+}
+
+.dash-list{
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 12px;
+}
+
 .dash-item{
   border: 1px solid black;
   border-radius: 8px;
@@ -16,8 +26,22 @@
   display: flex;
 }
 
+.dash-item .tools .delete{
+  border-radius: 24px;
+  width: 16px;
+  text-align: center;
+  height: 16px;
+  border: 1px solid maroon;
+  color: maroon;
+  cursor: pointer;
+}
+.dash-item .tools{
+  padding-left: 8px;
+}
+
 .dash-item-form{
   display: flex;
+  margin-top: 16px;
   border:1px solid black;
   padding: 8px;
   flex-direction: column;
@@ -32,6 +56,16 @@
 .dash-item-form button{
   margin-top: 8px;
 }
+
+.dash-item-form input{
+  margin-top: 8px;
+}
+
+
+.dash-item-form textarea{
+  margin-top: 8px;
+}
+
 
 progress {
   width: 100%;

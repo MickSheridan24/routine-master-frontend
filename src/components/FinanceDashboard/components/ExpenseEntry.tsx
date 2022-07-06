@@ -5,7 +5,7 @@ import { deleteExpense } from "../FinanceService";
 export default function ExpenseEntry(props: {entry: IExpenseEntry}){
     const{entry} = props 
 
-    return <div className="finance-item-container">
+    return <div className="dash-item">
         <div className="info">
             <div className="date">{formatDate(entry.date!)}</div>
             <div className="name">{entry.name + (entry.budgetName ? " (" + entry.budgetName + ")" : "")}

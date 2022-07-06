@@ -7,7 +7,7 @@ export default function CreativeProjectForm(){
     
     
     
-    return <div className="project-form">
+    return <div className="dash-item-form">
         <input onChange={(e) => setNameValue(e.target.value)} value={nameValue} placeholder="Enter a Name..." type="text"/>
         <textarea onChange={(e) => setDescriptionValue(e.target.value)}  value ={descriptionValue} placeholder="Enter a Description..."/>
         <button onClick={() => createCreativeProject({name: nameValue, description: descriptionValue, entries: []})}>Create</button>

@@ -46,7 +46,7 @@ export default function EducationDashboard(){
     return <>
     
     <div className="dashboard-container">
-        <div className="dashboard-column">
+        <div className="dashboard-column main">
             <h3>Books</h3>
             <div className="books-container">
                 {books.map(b => <Book setSelectedBook={setSelectedBook} key={b.id} book={b}></Book>)}
@@ -55,7 +55,7 @@ export default function EducationDashboard(){
         </div>
         <hr />
        
-        <div className="dashboard-column">
+        <div className="dashboard-column main">
             <h3>Courses</h3>
             {courses.map(c => <Course setSelectedCourse={setSelectedCourse} course={c}></Course>)}
             <CourseForm></CourseForm>

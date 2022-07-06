@@ -30,5 +30,11 @@ export function deleteCreativeProject(id: number){
     }).then(() => CreativeProjectRefereshObs.next()) 
 }
 
+export function deleteCreativeProjectEntry(id: number, entryId: number){
+    fetch(BASE_ADDRESS + "projects/" + id + "/entries/" + entryId, {
+        method: "DELETE",
+    }).then(() => CreativeProjectRefereshObs.next()) 
+}
+
 
 export const CreativeProjectRefereshObs = refreshObs()

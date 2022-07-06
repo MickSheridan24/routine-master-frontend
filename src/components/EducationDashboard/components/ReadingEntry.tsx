@@ -8,11 +8,9 @@ export default function ReadingEntry(props: {bookId: number,  entry: IReadingEnt
     
     return <div className="dash-item">
         <div className="info">
-            <label htmlFor="Date">Date</label>
-            <div id="Date">{formatDate(entry.date!.toString())}</div>
+            <div id="date">{formatDate(entry.date!.toString())}</div>
 
-            <label htmlFor="pagesRead">Pages Read</label>
-            <div id="pagesRead">{entry.pagesRead}</div>
+            <div id="pagesRead">{entry.pagesRead} Pages Read</div>
         </div>
         <div className="tools">
             <div className="delete" onClick={(e) => {

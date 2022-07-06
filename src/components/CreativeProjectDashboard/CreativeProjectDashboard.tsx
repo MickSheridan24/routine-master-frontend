@@ -14,17 +14,27 @@ export default function CreativeProjectDashboard(){
     const [projects, setProjects] = useResource<ICreativeProject>("projects", CreativeProjectRefereshObs)
     const [selectedProject, setSelectedProject] = useState<ICreativeProject>()
 
-    return <div className="projects-dash">
-            <div className="projects-container">
+    useEffect(() => {
+        const refreshedSelected : ICreativeProject | undefined = projects
+        .find(b => b.id === selectedProject?.id) ?? undefined
+        setSelectedProject(refreshedSelected ? {...refreshedSelected} : undefined )
+    }, [projects])
+
+    return <div className="dashboard-container">
+            <div className="dashboard-column main">
                 <h3>Projects</h3>
-                {projects.map(p => <CreativeProject setSelectedProject={setSelectedProject} key={p.id} project = {p}></CreativeProject>)}
+                <div className="dash-list">
+                 {projects.map(p => <CreativeProject setSelectedProject={setSelectedProject} key={p.id} project = {p}></CreativeProject>)}
+                </div>
                 <CreativeProjectForm></CreativeProjectForm>
             </div>
             <hr />
-            <div className="entries-container">
+            <div className="dashboard-column">
                 <h3>Entries</h3>
-                {selectedProject ? selectedProject.entries.map(e => <CreativeProjectEntry entry={e}></CreativeProjectEntry>) : <></>}
-            
+                <h4>{selectedProject?.name}</h4>
+                <div className="dash-list">
+                    {selectedProject ? selectedProject.entries.map(e => <CreativeProjectEntry  projectId={selectedProject.id!} entry={e}></CreativeProjectEntry>) : <></>}
+                </div>
                 {selectedProject ? <CreativeProjectEntryForm projectId={selectedProject!.id!}></CreativeProjectEntryForm> : <></>}
             </div>
         </div>
