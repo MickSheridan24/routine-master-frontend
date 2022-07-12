@@ -1,16 +1,37 @@
 import { useEffect, useState } from "react"
-import { IBudget } from "../../../types/FinanceTypes"
-import { createExpense } from "../FinanceService"
+import { IBudget, IExpenseEntry, ITag } from "../../../types/FinanceTypes"
+import Dropdown from "../../Shared/Dropdown"
+import Pill from "../../Shared/Pill"
+import { createExpense, updateExpense } from "../FinanceService"
 
-export default function ExpenseForm(props: {budgets: IBudget[]}){
+export default function ExpenseForm(props: {onCancel?: () => void, budgets: IBudget[], existingTags: ITag[], expense?: IExpenseEntry}){
+    const {budgets, existingTags, expense, onCancel} = props
 
-    const [name, setName] = useState("")
-    const [amount, setAmount] = useState(0.00)
-    const [budgetId, setBudgetId] = useState<number | undefined>()
+    const [name, setName] = useState(expense?.name ?? "")
+    const [amount, setAmount] = useState(expense?.amount ?? 0.0)
+    const [budgetId, setBudgetId] = useState<number | undefined>(expense?.budgetId)
+    const [tags, setTags] = useState<ITag[]>(expense?.tags ?? [])
 
-    const {budgets} = props
+    const [newTag, setNewTag] = useState("")
 
-    useEffect(() => console.log(budgetId), [budgetId])
+
+
+    const getTagOptions = () => existingTags.filter(t => t.name.startsWith(newTag)).map(tag => {
+        return {label: tag.name, key: tag.id!}
+    })
+
+    const addTag = (tag: ITag) => {
+        if(!tags.find(t => t.name === tag.name)){
+            const updatedTags = Array.from(new Set([...tags, tag]))
+            setTags(updatedTags)
+            setNewTag("")
+        }
+    }
+
+    const removeTag = (tag: ITag) => {
+        setTags(tags.filter(t => t !== tag))
+    }
+
 
     return <div className="finance-form">
         <div className="form">
@@ -22,13 +43,38 @@ export default function ExpenseForm(props: {budgets: IBudget[]}){
             
             <label htmlFor="budget">Budget</label>
             <select name="Budget" id="budget" value={budgetId} onChange={(e) => {
-                console.log(e)
                 setBudgetId(parseInt(e.target.value))}}>
                 <option key="Unassigned" value={undefined} defaultChecked >Unassigned</option>
                 {budgets.map(b => <option value={b.id} key={b.id}>{b.name}</option>)}
             </select>
+            
 
-            <button onClick={() => createExpense({name, amount, budgetId})}>Enter</button>
+            <label htmlFor="tag">Tags</label>
+            
+            <input type="text" onKeyDown={(e) => {
+                    console.log(e.key)
+                if(e.key === "Enter"){
+                    addTag({name: newTag})}
+                }
+              }  value={newTag} onChange={(e) => setNewTag(e.target.value)} placeholder="New Tag"/>
+            
+            {newTag && getTagOptions().length ? <> 
+                <Dropdown onClick={(e) => addTag(existingTags.find(et => et.id === e)!)} options={getTagOptions()}></Dropdown>
+            </> : <></>}
+            <div className="pills">
+                {tags.map(t => <Pill label={t.name} onClick={() => removeTag(t)}></Pill>)}
+            </div>
+            <div className="submit">
+                
+                {expense && onCancel ? <button onClick={() => {
+                updateExpense({id: expense.id!, amount, budgetId, name, tags:[...tags]})
+                onCancel!()
+                }}>Update Expense</button>
+                : <button onClick={() => createExpense({name, amount, budgetId, tags:[...tags]})}>Enter Expense</button>}
+            </div>
+        </div>
+        <div className="tools">
+            {onCancel ? <div onClick={onCancel}className="cancel">Cancel</div> : <></>}
         </div>
     </div>
 }

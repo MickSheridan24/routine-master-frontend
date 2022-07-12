@@ -8,6 +8,10 @@
   padding: 24px;
 }
 
+.dashboard-column .header{
+  margin-bottom: 16px;
+}
+
 .dashboard-column.main{
   flex: 2;
 }
@@ -40,6 +44,8 @@
 }
 .dash-item .info{
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .dash-item-form{
@@ -69,6 +75,35 @@
   margin-top: 8px;
 }
 
+
+.dropdown-container{
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 8px; 
+  background-color: gainsboro;
+}
+
+.dropdown-option{
+  cursor:pointer;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+}
+
+.dropdown-container .dropdown-option:hover{
+  background: aqua;
+  border-radius: 4px;
+}
+
+.pill{
+  border: 1px solid gray;
+  background-color: gainsboro;
+  display: inline;
+  padding: 4px;
+  border-radius: 24px;
+  font-size: 8px;
+  cursor: pointer;
+}
 
 progress {
   width: 100%;

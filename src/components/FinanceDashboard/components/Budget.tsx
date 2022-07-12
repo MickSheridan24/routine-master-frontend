@@ -7,6 +7,9 @@ import BudgetForm from "../forms/BudgetForm";
 export default function Budget (props: {funds: IFund[], budget: IBudget, selectBudget: (id: IBudget) => void}){
     const {budget, selectBudget, funds}  = props 
     const [editMode, setEditMode] = useState(false)
+
+    const spent = parseFloat(budget.spent?.toFixed(2) ?? "0")
+
     return <>
 
         {editMode ? <BudgetForm onCancel={() => setEditMode(false)} funds={funds} budget={budget}></BudgetForm>
@@ -14,8 +17,8 @@ export default function Budget (props: {funds: IFund[], budget: IBudget, selectB
         : <div onClick={() => selectBudget(budget)} className="dash-item">
             <div className="info">
                 <h4 className="name">{budget.name} - ${budget.amount}</h4>
-                <div>${budget.spent!} / ${budget.amount - budget.spent!}</div>
-                <HealthBar amount={budget.spent!} total={budget.amount} redOn="High"></HealthBar>
+                <div>${spent} / ${(budget.amount - budget.spent!).toFixed(2)}</div>
+                <HealthBar amount={spent} total={budget.amount} redOn="High"></HealthBar>
                 {budget.fundName ? <div>Excess Funds to {budget.fundName}</div> : <></>}
             </div>
             <div className="tools">

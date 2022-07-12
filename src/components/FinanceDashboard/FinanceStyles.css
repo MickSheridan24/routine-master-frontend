@@ -76,12 +76,27 @@
     margin-top: 8px;
 }
 
-.cancel{
-    color: maroon;
-    cursor: pointer;
-}
+
 .edit{
     margin-top: 4px;
     cursor: pointer;
     color: teal;
+}
+
+.tags{
+    display: flex;
+    font-size: 10px;
+    flex: 2;
+    align-items: flex-end;
+    margin-top: 8px;
+}
+
+
+.tag-filter{
+    margin-bottom: 8px;
+}
+
+.tag-filter input{
+    width: 97%;
+    margin-bottom: 4px;
 }

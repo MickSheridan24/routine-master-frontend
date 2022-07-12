@@ -29,7 +29,22 @@ export function updateBudget(value: IBudget){
     })
 }
 
+export function updateExpense(value: IExpenseEntry){
+    fetch(BASE_ADDRESS + "expenses/" + value.id, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(value)
+    }).then(() => {
+        budgetRefreshObs.next()
+        expensesRefreshDeepObs.next()
+        userIncomeRefreshObs.next()
+    })
+}
+
 export function createExpense(value: IExpenseEntry){
+    console.log(value)
     fetch(BASE_ADDRESS + "expenses", {
         method: "POST",
         headers: {
@@ -85,6 +100,8 @@ export function deleteBudget(id: number){
 export const budgetRefreshObs = refreshObs()
 
 export const expensesRefreshObs = refreshObs()
+
+export const expensesRefreshDeepObs = refreshObs()
 
 export const fundsRefreshObs = refreshObs()
 

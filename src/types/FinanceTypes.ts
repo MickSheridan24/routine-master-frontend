@@ -14,7 +14,13 @@ export interface IExpenseEntry{
     budgetId?: number,
     amount: number,
     name: string,
-    budgetName?: string
+    budgetName?: string,
+    tags?: ITag[]
+}
+
+export interface ITag{
+    name: string,
+    id?: number
 }
 
 
