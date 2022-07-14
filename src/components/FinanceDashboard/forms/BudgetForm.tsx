@@ -9,7 +9,7 @@ export default function BudgetForm(props: {funds: IFund[], budget?: IBudget, onC
     const [amount, setAmount] = useState(budget?.amount ?? 0.00)
     const [fundId, setFundId] = useState<number | undefined>(budget?.fundId ?? undefined)
 
-    return <div className="finance-form">
+    return <div className="dash-item-form">
         <div className="form">
             <label htmlFor="name">Name</label>
             <input id="name" type="text" onChange={(e) => setName(e.target.value)} value = {name} />

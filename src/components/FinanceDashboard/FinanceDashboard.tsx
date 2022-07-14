@@ -64,7 +64,7 @@ export default function FinanceDashboard(){
     const getExistingTags = () =>  expenses.map(e => e.tags ?? []).flat()
     
 
-    return <div className="dashboard-container">
+    return <div className="dashboard-container finance-theme">
         <div className="dashboard-column">
             <div className="header">
                 <h3>{getExpenseHeader()}</h3>

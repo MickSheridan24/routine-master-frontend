@@ -8,7 +8,7 @@ import { CurrentDashContext } from './contexts/ViewContexts';
 
 function App() {
 
-  const [currentDash, setCurrentDash] = useState<DashboardName>(DashboardName.Home);
+  const [currentDash, setCurrentDash] = useState<DashboardName>(DashboardName.Mundane);
 
 
   return (

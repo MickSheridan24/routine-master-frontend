@@ -6,7 +6,7 @@ export default function CreativeProjectEntryForm(props: {projectId: number}){
     const [percentComplete, setPercentComplete] = useState(0)
 
     return <>
-        {props.projectId ? <div className="entry-form">
+        {props.projectId ? <div className="dash-item-form">
             <label htmlFor="description">Description</label>
             <input value={description} onChange={(e) => setDescription(e.target.value)} id="description" type="text" />
             <label htmlFor="percent">Percent Completed</label>

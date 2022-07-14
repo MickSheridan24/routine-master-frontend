@@ -1,3 +1,9 @@
+.education-theme{
+    --primary-color: #362f76 !important;
+    --pale-color: #362f76bb !important;
+}
+
+
 .books-section{
     margin-left: 24px;
 }

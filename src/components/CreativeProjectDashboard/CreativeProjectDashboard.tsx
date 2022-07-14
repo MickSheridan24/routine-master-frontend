@@ -20,7 +20,7 @@ export default function CreativeProjectDashboard(){
         setSelectedProject(refreshedSelected ? {...refreshedSelected} : undefined )
     }, [projects])
 
-    return <div className="dashboard-container">
+    return <div className="dashboard-container creative-project-theme">
             <div className="dashboard-column main">
                 <h3>Projects</h3>
                 <div className="dash-list">

@@ -15,12 +15,12 @@ export default function MundaneDashboard(){
 
 
     return <>
-            <div className="dashboard-column">
+            <div className="dashboard-column mundane-theme">
             <MundaneListContext.Provider value={{get: mundaneLists, set: setMundaneLists}}>
                 <MundaneListContainer></MundaneListContainer>
             </MundaneListContext.Provider>
             </div>
-            <div className="dashboard-column">
+            <div className="dashboard-column mundane-theme" >
             <MundaneRoutineContext.Provider value={{get: mundaneRoutines, set: setMundaneRoutines}}>
                 <MundaneRoutineContainer></MundaneRoutineContainer>
             </MundaneRoutineContext.Provider>

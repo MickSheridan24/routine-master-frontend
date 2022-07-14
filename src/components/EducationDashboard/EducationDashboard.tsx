@@ -45,7 +45,7 @@ export default function EducationDashboard(){
 
     return <>
     
-    <div className="dashboard-container">
+    <div className="dashboard-container education-theme">
         <div className="dashboard-column main">
             <h3>Books</h3>
             <div className="books-container">

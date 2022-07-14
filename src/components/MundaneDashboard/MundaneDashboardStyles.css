@@ -1,3 +1,7 @@
+.mundane-theme{
+    --primary-color: #328681 !important;
+}
+
 .mundane-list{
     border: 1px solid rgb(36, 28, 28);
     border-radius: 4px;
@@ -21,7 +25,7 @@
     padding:4px;
     padding-left: 5px;
     padding-right: 5px;
-    background-color: teal;
+    background-color: var(--primary-color);
     color: aliceblue;
     border-radius: 25px;
 }
@@ -70,13 +74,13 @@
 
 .mundane-li-form input{
     flex:1;
-    border: 1px solid teal;
+    border: 1px solid var(--primary-color);
     border-radius: 8px;
 }
 
 .mundane-li-form button{
     margin-left: 16px;
-    background: teal;
+    background: var(--primary-color);
     color: aliceblue;
     border: none;
     border-radius: 8px;
@@ -94,13 +98,13 @@
 
 .mundane-list-form input{
     flex:1;
-    border: 1px solid teal;
+    border: 1px solid var(--primary-color);
     border-radius: 8px;
 }
 
 .mundane-list-form button{
     margin-left: 16px;
-    background: teal;
+    background: var(--primary-color);
     color: aliceblue;
     border: none;
     border-radius: 8px;
@@ -112,7 +116,7 @@
 
 .mundane-list-form button:hover{
     cursor: pointer;
-    background-color: rgb(2, 201, 201);
+    background-color: var(--primary-color)
 
 }
 
@@ -121,15 +125,15 @@
   min-width: 24px;
   text-align: center;
   height: 16px;
-  border: 1px solid teal;
-  color: teal;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
   cursor: pointer;
   vertical-align: middle;
 }
 
 .check{
     min-width: 24px;
-    background-color: teal;
+    background-color: var(--primary-color);
     min-height: 24px;
     max-width: 24px;
     border-radius: 24px;

@@ -8,7 +8,7 @@ export default function BooksForm(){
     const [difficulty, setdifficulty] = useState(1)
 
 
-    return <div className="books-form">
+    return <div className="dash-item-form">
         <input type="text" onChange={(e) => setName(e.target.value)}  value ={name} placeholder="Enter Title..."/>
         <label htmlFor="totalPages">Total Pages</label>
         <input id="totalPages" type="number" onChange={(e) => setTotalPages(parseInt(e.target.value))}  value ={totalPages}/>

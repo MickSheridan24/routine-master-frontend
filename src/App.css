@@ -1,6 +1,35 @@
+:root {
+  --primary-color: #8f9596;
+  --pale-color: #7e8485;
+}
+
+.navbar{
+  padding-left: 100px;
+  padding-right: 100px;
+  background: var(--primary-color);
+  display: flex;
+}
+
+.navbar button{
+  background-color: var(--primary-color);
+  border: none;
+  color: aliceblue;
+  font-size: 12px;
+  float: 1;
+  cursor: pointer;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  flex: 1;
+
+
+}
+
+.navbar button:hover{
+  background-color: var(--primary)
+}
+
 .dashboard-container{
   display: flex;
-
 }
 
 .dashboard-column{
@@ -64,6 +93,10 @@
 
 .dash-item-form button{
   margin-top: 8px;
+  border-radius: 8px;
+  color: aliceblue;
+  border: 1px solid var(--primary-color);
+  background-color: var(--pale-color) !important;
 }
 
 .dash-item-form input{
@@ -91,7 +124,7 @@
 }
 
 .dropdown-container .dropdown-option:hover{
-  background: aqua;
+  background: var(--primary-color);
   border-radius: 4px;
 }
 
@@ -117,10 +150,11 @@ border: none;
 }
 progress::-moz-progress-bar {
   border-radius: 4px;
+  background-color: #06466d;
 }
 
 .green progress::-moz-progress-bar{
-  background-color: green;
+  background-color: var(--primary-color);
 
 }
 

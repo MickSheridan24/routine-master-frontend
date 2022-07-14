@@ -1,3 +1,10 @@
+@import "../../App.css";
+
+.creative-project-theme{
+    --primary-color: #148237 !important;
+    --pale-color: #148237bb !important;
+}
+
 .projects-container{
     display: flex;
     flex-direction: column;
