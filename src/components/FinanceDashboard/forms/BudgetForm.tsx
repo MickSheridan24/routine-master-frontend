@@ -10,7 +10,6 @@ export default function BudgetForm(props: {funds: IFund[], budget?: IBudget, onC
     const [fundId, setFundId] = useState<number | undefined>(budget?.fundId ?? undefined)
 
     return <div className="dash-item-form">
-        <div className="form">
             <label htmlFor="name">Name</label>
             <input id="name" type="text" onChange={(e) => setName(e.target.value)} value = {name} />
 
@@ -31,8 +30,10 @@ export default function BudgetForm(props: {funds: IFund[], budget?: IBudget, onC
                 }}>Update</button>
             :<button onClick={() => {
                 createBudget({name, amount, fundId})
+                setName("")
+                setAmount(0)
+                setFundId(undefined)
                 }}>Create</button>}
-            </div>
         <div className="tools">
                 {onCancel ? <div onClick={onCancel}className="cancel">Cancel</div> : <></>}
         </div>

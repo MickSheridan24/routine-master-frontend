@@ -7,9 +7,14 @@ export default function FundForm(){
     const [amount, setAmount] = useState(0.00)
     const [goal, setGoal] = useState(0.00)
 
+    const submitForm = () => {
+        createFund({name, amount: amount, goal: goal})
+        setName("")
+        setAmount(0 )
+        setGoal(0)
+    }
 
     return <div className="dash-item-form">
-        <div className="form">
             <label htmlFor="name">Name</label>
             <input id="name" type="text" onChange={(e) => setName(e.target.value)} value = {name} />
 
@@ -19,7 +24,6 @@ export default function FundForm(){
             <label htmlFor="name">Goal</label>
             <input id="goal" type="number" min={0.00} step={0.01} onChange={(e) => {setGoal(parseFloat(e.target.value))}} value = {goal} />
 
-            <button onClick={() => createFund({name, amount: amount, goal: goal})}>Create</button>
-        </div>
+            <button onClick={() => submitForm()}>Create</button>
     </div>
 }

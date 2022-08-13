@@ -30,6 +30,7 @@
 
 .dashboard-container{
   display: flex;
+  min-width: 100vw;
 }
 
 .dashboard-column{
@@ -84,6 +85,7 @@
   padding: 8px;
   flex-direction: column;
   border-radius: 8px;
+  margin-bottom: 8px;
 }
 
 .dash-item-form label{
@@ -97,7 +99,19 @@
   color: aliceblue;
   border: 1px solid var(--primary-color);
   background-color: var(--pale-color) !important;
+  cursor: pointer;
 }
+
+.dash-button{
+  margin-top: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: aliceblue;
+  border: 1px solid var(--primary-color);
+  background-color: var(--pale-color) !important;
+}
+
+
 
 .dash-item-form input{
   margin-top: 8px;
@@ -161,3 +175,5 @@ progress::-moz-progress-bar {
 .red progress::-moz-progress-bar{
   background-color: rgb(213, 42, 42);
 }
+
+

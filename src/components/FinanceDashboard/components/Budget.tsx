@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IBudget, IFund } from "../../../types/FinanceTypes";
 import HealthBar from "../../Shared/HealthBar";
-import { deleteBudget } from "../FinanceService";
+import { deleteBudget, updateBudget } from "../FinanceService";
 import BudgetForm from "../forms/BudgetForm";
 
 export default function Budget (props: {funds: IFund[], budget: IBudget, selectBudget: (id: IBudget) => void}){
@@ -9,6 +9,8 @@ export default function Budget (props: {funds: IFund[], budget: IBudget, selectB
     const [editMode, setEditMode] = useState(false)
 
     const spent = parseFloat(budget.spent?.toFixed(2) ?? "0")
+
+    const balanceBudget = () => updateBudget({...budget, amount : budget.spent ?? budget.amount})
 
     return <>
 
@@ -32,6 +34,11 @@ export default function Budget (props: {funds: IFund[], budget: IBudget, selectB
                 }}>
                     Edit
                 </div>
+
+                {budget.spent ?? 0 > budget.amount ? <div className="edit" onClick={(e) => {
+                    e.stopPropagation()
+                    balanceBudget()}
+                    }>Rebalance</div> : <></>}
             </div>
         </div>}
     </>

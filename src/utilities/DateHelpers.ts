@@ -35,3 +35,9 @@ export function formatDate(dateString: string): string{
 
     return dayName + " " + monthName + " " + dateNum + ", " + year
 }
+
+export function currentMonth(){
+  const month= new Date(Date.now()).getMonth()
+
+  return months[month]
+}

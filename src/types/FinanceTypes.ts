@@ -38,3 +38,9 @@ export interface IUserIncome{
     remaining: number,
     budgeted: number
 }
+
+export interface IFinanceSummary{
+    present: number, 
+    lastMonth: number, 
+    average: number
+}

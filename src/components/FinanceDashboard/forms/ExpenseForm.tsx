@@ -34,7 +34,6 @@ export default function ExpenseForm(props: {onCancel?: () => void, budgets: IBud
 
 
     return <div className="dash-item-form">
-        <div className="form">
             <label htmlFor="name">Name</label>
             <input id="name" type="text" onChange={(e) => setName(e.target.value)} value = {name} />
 
@@ -68,11 +67,14 @@ export default function ExpenseForm(props: {onCancel?: () => void, budgets: IBud
                 
                 {expense && onCancel ? <button onClick={() => {
                 updateExpense({id: expense.id!, amount, budgetId, name, tags:[...tags]})
+                setAmount(0)
+                setName("")
+                setTags([])
+                setBudgetId(undefined)
                 onCancel!()
                 }}>Update Expense</button>
                 : <button onClick={() => createExpense({name, amount, budgetId, tags:[...tags]})}>Enter Expense</button>}
             </div>
-        </div>
         <div className="tools">
             {onCancel ? <div onClick={onCancel}className="cancel">Cancel</div> : <></>}
         </div>

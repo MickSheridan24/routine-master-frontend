@@ -26,3 +26,16 @@ export interface ICourseEntry{
     date?: Date,
     percentCompleted: number
 }
+
+export interface IReadingSummary{
+    present: number, 
+    lastMonth: number, 
+    average: number
+}
+
+
+export interface ICourseSummary{
+    present: number, 
+    lastMonth: number, 
+    average: number
+}
