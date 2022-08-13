@@ -24,6 +24,7 @@ export default function FinanceDashboard(){
     const [selectedTag, setSelectedTag] = useState<ITag>()
     const [selectedTagSearch, setSelectedTagSearch] = useState("")
     const [deepRefreshExpenses, setDeepRefreshExpenses] = useState(false)
+    const [score, setScore] = useState(0)
 
     const [showGraph, setShowGraph] = useState(true)
 
@@ -56,13 +57,15 @@ export default function FinanceDashboard(){
         setRefreshIncome(false)
         fetch(BASE_ADDRESS + "financeSummary")
         .then(r => r.json()
-        .then(r => {
-            console.log(r)
-            return r
-        })
         .then(setUserFinanceSummary))
     },[deepRefreshExpenses])
 
+
+    useEffect(() => {
+        fetch(BASE_ADDRESS + "financeScore")
+        .then(r => r.json())
+        .then(setScore)
+    }, [expenses, deepRefreshExpenses])
 
     const getTotal = () => {
         return expenses.filter(e=> 
@@ -98,7 +101,11 @@ export default function FinanceDashboard(){
     const getExistingTags = () =>  expenses.map(e => e.tags ?? []).flat()
     
 
-    return <div className="dashboard-container finance-theme">
+    return <>
+    <div className="dashboard-header finance-theme">
+        <h2>Finance Score : ({score})</h2>
+    </div>
+    <div className="dashboard-container finance-theme">
         <div className="dashboard-column">
             <div className="header">
                 <h3>{getExpenseHeader()}</h3>
@@ -160,4 +167,5 @@ export default function FinanceDashboard(){
 
         </div>
     </div>
+    </>
 }

@@ -23,5 +23,5 @@ export default function DashboardContainer(){
     }
 
 
-    return <div className="dashboard-container">{getCurrentDash()}</div>
+    return getCurrentDash()
 }

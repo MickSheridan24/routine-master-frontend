@@ -23,6 +23,7 @@ export default function EducationDashboard(){
     const [showCourseGraph, setShowCourseGraph] = useState(false)
     const [readingSummary, setReadingSummary] = useState<IReadingSummary[]>([])
     const [courseSummary, setCourseSummary] = useState<ICourseSummary[]>([])
+    const [score, setScore] = useState<number>(0)
 
     useEffect(() => {
         const refreshedSelected : ICourse | undefined = courses.find(b => b.id === selectedCourse?.id) ?? undefined
@@ -66,6 +67,12 @@ export default function EducationDashboard(){
         .then(setCourseSummary))
     }, [courses])
 
+    useEffect(() => {
+        fetch(BASE_ADDRESS + "educationScore")
+        .then(r => r.json())
+        .then(setScore)
+    }, [books, courses])
+
     const getReadingGraphData= () => {
         
         const average = readingSummary.map((s, i) => {
@@ -100,7 +107,9 @@ export default function EducationDashboard(){
             ]   
     }
     return <>
-    
+    <div className="dashboard-header education-theme">
+        <h2>Education Score : ({score})</h2>
+    </div>
     <div className="dashboard-container education-theme">
         <div className="dashboard-column main">
             <button style = {{marginBottom: "8px"}} className="dash-button" onClick={(e) => setShowReadingGraph(!showReadingGraph)}>{showReadingGraph ? "Hide Graph" : "Show Reading Graph"}</button>

@@ -28,6 +28,13 @@
   background-color: var(--primary)
 }
 
+.dashboard-header{
+  padding: 24px;
+  float: right;
+  margin-right: 48px;
+  letter-spacing: 1px;
+  color: var(--primary-color);
+}
 .dashboard-container{
   display: flex;
   min-width: 100vw;
