@@ -9,8 +9,8 @@ export interface IExerciseRoutine{
 
     id?:number,
     name: string,
-    baseAmount: number,
-    scale: number
+    requiredOccurrences: number, 
+    scheduleType: EScheduleType,
 }
 
 export interface IExerciseEntry{
@@ -18,4 +18,9 @@ export interface IExerciseEntry{
     exerciseRoutineId: number,
     date?: Date,
     score: number
+}
+
+
+export enum EScheduleType{
+    DAY = 1, WEEK=2, MONTH = 3, YEAR = 4
 }

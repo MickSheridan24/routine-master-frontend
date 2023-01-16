@@ -13,8 +13,8 @@ export function createExerciseRoutine(value: IExerciseRoutine){
     postResource("exerciseRoutines", value, [exerciseRefreshObs])
 }
 
-export function createExerciseRoutineEntry (routineId: number, value: IExerciseEntry){
-    postResource("exerciseRoutines/" + routineId + "/entries", value, [exerciseRefreshObs])
+export function createExerciseRoutineEntry (value: IExerciseEntry){
+    postResource("exerciseRoutines/" + value.exerciseRoutineId + "/entries", value, [exerciseEntriesRefreshObs])
 }
 
 export function updateExerciseRoutine(id:number, value: IExerciseRoutine){
@@ -24,3 +24,4 @@ export function updateExerciseRoutine(id:number, value: IExerciseRoutine){
 
 export const mealsRefreshObs = refreshObs()
 export const exerciseRefreshObs = refreshObs()
+export const exerciseEntriesRefreshObs = refreshObs()

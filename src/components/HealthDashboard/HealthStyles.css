@@ -2,3 +2,15 @@
     --primary-color: #b4300e !important;
     --pale-color: #b4300ebb !important;
 }
+
+input.inline{
+    width : 32px;
+    display: inline-block;
+    margin-left: 8px;
+}
+select{
+    margin-left: 8px;
+}
+span{
+    margin-left: 8px;
+}

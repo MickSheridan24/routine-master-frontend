@@ -21,7 +21,7 @@ export default function UserIncome(props: {userIncome: IUserIncome}){
             <div id="remaining">${userIncome.remaining.toFixed(2)}</div>
 
             <label htmlFor="unbudgeted">Unbudgeted</label>
-            <div id="unbudgeted">${(userIncome.amount - userIncome.budgeted).toFixed(2)}</div></> : <></>}
+            <div id="unbudgeted">${(userIncome.amount + userIncome.incidentalBonus - userIncome.budgeted).toFixed(2)}</div></> : <></>}
      </div>
     </div>
 }

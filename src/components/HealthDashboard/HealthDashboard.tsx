@@ -1,15 +1,17 @@
 import { useResource } from "../../hooks/resourceHooks"
-import { IExerciseEntry, IMealRating } from "../../types/HealthTypes"
+import { IExerciseEntry, IExerciseRoutine, IMealRating } from "../../types/HealthTypes"
+import ExerciseRoutine from "./components/ExerciseRoutine"
 import MealRating from "./components/MealRating"
+import ExerciseRoutineForm from "./forms/ExerciseRoutineForm"
 import MealForm from "./forms/MealForm"
-import { exerciseRefreshObs, mealsRefreshObs } from "./HealthService"
+import { exerciseEntriesRefreshObs, exerciseRefreshObs, mealsRefreshObs } from "./HealthService"
 import "./HealthStyles.css"
 
 export default function HealthDashboard(){
 
     const [meals, setMeals] = useResource<IMealRating>("meals", mealsRefreshObs)
-    const [exercises, setExercises] = useResource<IExerciseEntry>("exercises", exerciseRefreshObs)
-
+    const [exercises, setExercises] = useResource<IExerciseRoutine>("exerciseRoutines", exerciseRefreshObs)
+    const [exerciseEntries, setExerciseEntries] = useResource<IExerciseEntry>("exerciseRoutines/entries", exerciseEntriesRefreshObs)
 
     const breakfast = meals.find(m => m.mealType === "Breakfast")
     const lunch = meals.find(m => m.mealType === "Lunch")
@@ -52,8 +54,9 @@ export default function HealthDashboard(){
                 <h3>Exercise</h3>
             </div>
 
+            <ExerciseRoutineForm></ExerciseRoutineForm>
             <div className="dash-list">
-
+                {exercises.map(e => <ExerciseRoutine key={e.id} routine={e} entries={exerciseEntries.filter(en => en.exerciseRoutineId === e.id)}></ExerciseRoutine>)}
             </div>
         </div>
     </div>
